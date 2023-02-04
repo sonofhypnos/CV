@@ -1,0 +1,66 @@
+
+\documentclass[letterpaper,11pt]{article}
+
+
+% Choose bibliography style for formatting list of publications
+\usepackage[style=ieee,url=false,doi=false,maxbibnames=99,sorting=ydnt,dashed=false]{biblatex}
+\bibliography{papers}
+
+%import the package
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+
+% Choose theme, e.g. black, RedViolet, ForestGreen, MidnightBlue
+\def\theme{MidnightBlue}
+
+% More predefined colors can be found in 
+% https://en.wikibooks.org/wiki/LaTeX/Colors
+% Example photograph taken from Wikimedia Commons
+% https://commons.wikimedia.org/wiki/File:Kiara_Krit_passport.jpg
+
+\usepackage{simplecv}
+
+\boldname{Tassilo}{Neubauer}{N.}
+
+\begin{document}
+
+% Heading
+\headinginline{Tassilo Neubauer}{
+    %Website: \website{example.com} \\ 
+    Email: \email{tassilo.neubauer@gmail.com} \\
+    GitHub: \github{sonofhypnos}
+}
+
+% \headingphoto{Name Surname}{
+%     Website: \website{example.com} \\ 
+%     Email: \email{example@example.edu} \\
+%     LinkedIn: \linkedin{name-surname} \\
+%     GitHub: \github{example}
+% }{photo.jpg}
+
+% Page One
+\import{sections/}{education.tex}
+
+%\import{sections/}{publications.tex}
+
+% Page Two
+%\sidebyside
+%    
+
+
+    
+
+\import{sections/}{skills.tex}
+\import{sections/}{experience.tex}
+
+\import{sections/}{extracurricular.tex}
+\import{sections/}{projects.tex}
+\end{document}
