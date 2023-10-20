@@ -1,0 +1,16 @@
+.DS_Store
+.idea
+*.log
+tmp/
+
+*.py[cod]
+*.egg
+build
+htmlcov
+
+.auctex-auto
+main.aux
+main.bcf
+main.out
+main.pdf
+main.run.xml
