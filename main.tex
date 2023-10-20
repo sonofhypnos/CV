@@ -1,12 +1,8 @@
-
 \documentclass[letterpaper,9pt]{article}
 
-
-%Choose bibliography style for formatting list of publications
 \usepackage[style=ieee,url=false,doi=false,maxbibnames=99,sorting=ydnt,dashed=false]{biblatex}
 \bibliography{papers}
 
-%import the package
 \usepackage{hyperref}
 
 \hypersetup{
@@ -16,24 +12,15 @@
     urlcolor=cyan,
     pdftitle={CV},
     pdfpagemode=FullScreen,
-    % hidelinks,
-    }
+}
 
-
-% Choose theme, e.g. black, RedViolet, ForestGreen, MidnightBlue
 \def\theme{MidnightBlue}
-
-% More predefined colors can be found in
-% https://en.wikibooks.org/wiki/LaTeX/Colors
-% Example photograph taken from Wikimedia Commons
-% https://commons.wikimedia.org/wiki/File:Kiara_Krit_passport.jpg
 
 \usepackage{simplecv}
 
 \boldname{Tassilo}{Neubauer}{N.}
 
 \begin{document}
-% Heading
 \headinginline{Tassilo Neubauer}{
     %Website: \website{example.com} \\
     Email: \email{tassilo.neubauer@gmail.com} \\
@@ -46,21 +33,14 @@
 %     LinkedIn: \linkedin{name-surname} \\
 %     GitHub: \github{example}
 % }{photo.jpg}
-
-
-%\import{sections/}{publications.tex}
 \section{Education}
-
 \outerlist{
-
 \entrybig{\textbf{Karlsruhe Institute of Technology}}{Karlsruhe, Germany}
-{B.S. Computer Science, Current Average 3.0 on a scale from 5 (lowest) up to 1 (highest) grade}{2020\textendash Current}
-
-%Apparently people don't want high school if they have the other?
+{B.S. Computer Science, Current Average 3.0 on a scale from 5 (lowest) to 1 (highest) grade}{2020--Current}
 \entrybig{\textbf{Freie Waldorfschule Wahlwies}}{Stockach, Germany}
-{High school diploma,  1.4 on a scale from 5 (lowest) up to 1 (highest) grade} {2007 \textendash 2020}
-
+{High school diploma,  1.4 on a scale from 5 (lowest) to 1 (highest) grade} {2007--2020}
 }
+
 \section{Courses}
 \denseouterlist{
 \entry{\textbf{Math:} Linear Algebra I \& II, Real Analysis I \& II, Probability Theory, Numerical Math for Computer Scientists}
@@ -72,47 +52,37 @@
   \outerlist{
     \entrybig
       {\textbf{SERI ML Alignment Theory Scholars Program}}{Online}
-      {Participated in John Wentworth's agent foundations training program. \\ Conducted numerous exercises in conceptual research.}{November 2022 \textendash December 2022}
+      {Participated in John Wentworth's agent foundations training program. Conducted numerous exercises in conceptual research.}{November 2022--December 2022}
     \entrybig
       {\textbf{Forschungszentrum Informatik}}{Karlsruhe, Germany}
-      {Research assistant focusing on generating visualization recommendations \\ using evolutionary algorithms}{March 2022 \textendash December 2022}
+      {Research assistant focusing on generating visualization recommendations using evolutionary algorithms}{March 2022--December 2022}
     \entrybig
       {\textbf{Karlsruhe Institute of Technology}}{Karlsruhe, Germany}
-      {Collaborated with four other students in developing a C++ GUI-Plugin\\ for the distributed robot framework  ArmarX}{April 2022 \textendash September 2022}
+      {Collaborated with four other students in developing a C++ GUI-Plugin for the distributed robot framework  ArmarX}{April 2022--September 2022}
     \entrybig
       {\textbf{Karlsruhe Institute of Technology}}{Karlsruhe, Germany}
-      {Research assistant at the Chair for Political Economy. Configured ho}{September 2021 \textendash December 2021}
+      {Research assistant at the Chair for Political Economy. Configured ho}{September 2021--December 2021}
   }
+
 \section{Extracurriculars}
-
 \denseouterlist{
-
 \entrymid[\textbullet]
-{\textbf{Coorganizer of local EA group Karlsruhe}}{2021\textendash Current}
+{\textbf{Coorganizer of local EA group Karlsruhe}}{2021--Current}
 {Booking rooms, paperwork with university etc.}
-
-
 \entrymid[\textbullet]
-{\textbf{Member in \href{https://aisafety.com/}{AI-Safety-Reading-Group}}}{Fall 2019 \textendash Summer 2020}
+{\textbf{Member in \href{https://aisafety.com/}{AI-Safety-Reading-Group}}}{Fall 2019--Summer 2020}
 {Learning about arguments for AI-risk, reading AI-Safety Papers}
-
 \entrymid[\textbullet]
-{\textbf{Commenting and occasionally posting on \href{https://www.metaculus.com/accounts/profile/106992/}{Metaculus} and later \href{https://www.lesswrong.com/users/morpheus}{Lesswrong}}}{Summer 2019\textendash Current}
-{\textasciitilde ~2000 predictions on \textasciitilde 600 questions on Metaculus. Currently active only on Lesswrong.}
+{\textbf{Commenting and occasionally posting on \href{https://www.metaculus.com/accounts/profile/106992/}{Metaculus} and later \href{https://www.lesswrong.com/users/morpheus}{Lesswrong}}}{Summer 2019--Current}
+{\textasciitilde{} 2000 predictions on \textasciitilde{} 600 questions on Metaculus. Currently active only on Lesswrong.}
 }
 
-
-\section{projects}
-
+\section{Projects}
 \begin{minipage}[t]{0.505\textwidth}
-
 \outerlist{
-
 \entrybig[\textbullet]
 {Predicting the S\&P 500 (Python, Numpy, Pandas)}{}
 {\href{https://sonofhypnos.github.io/blog/prediction/python/2021/01/30/sp500.html}{link}}
-
 }
-
 \end{minipage}
 \end{document}
