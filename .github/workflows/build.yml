@@ -6,8 +6,23 @@ jobs:
     steps:
     - name: Set up Git repository
       uses: actions/checkout@v2
-    - name: Compile LaTeX document
+      
+    - name: Setup LaTeX with Xu Cheng's Action
       uses: xu-cheng/latex-action@v2
       with:
-        root_file: main.tex 
-
+        pre_compile: |
+          echo "\def\SkillVersion{}" > flag.tex
+      
+    - name: Compile LaTeX document (skills version)
+      run: |
+        pdflatex -interaction=nonstopmode main.tex
+        mv main.pdf resume_skills.pdf
+      
+    - name: Generate EA version flag
+      run: |
+        echo "\def\EAVersion{}" > flag.tex
+        
+    - name: Compile LaTeX document (ea version)
+      run: |
+        pdflatex -interaction=nonstopmode main.tex
+        mv main.pdf resume_ea.pdf
