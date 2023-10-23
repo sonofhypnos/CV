@@ -1,6 +1,6 @@
 # CV
 
-My CV. Requires texlive's ~pdflatex~ and ~make~. 
+My CV. Requires texlive's `pdflatex` and `make`. 
 
 # Compile:
 
