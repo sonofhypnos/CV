@@ -6,10 +6,19 @@ jobs:
     steps:
     - name: Set up Git repository
       uses: actions/checkout@v2
-      
+    - name: Cache LaTeX packages
+      uses: actions/cache@v2
+      with:
+        path: |
+          /usr/local/texlive
+          ~/.texlive
+        key: ${{ runner.os }}-texlive-${{ hashFiles('**/*.tex') }}
+        restore-keys: |
+          ${{ runner.os }}-texlive-
     - name: Setup LaTeX with Xu Cheng's Action
       uses: xu-cheng/latex-action@v2
       with:
+        root_file: main.tex
         pre_compile: |
           echo "\def\SkillVersion{}" > flag.tex
       
