@@ -35,3 +35,14 @@ jobs:
       run: |
         pdflatex -interaction=nonstopmode main.tex
         mv main.pdf resume_ea.pdf
+    - name: Upload Skills Version PDF
+      uses: actions/upload-artifact@v2
+      with:
+        name: resume_skills.pdf
+        path: resume_skills.pdf
+        
+    - name: Upload EA Version PDF
+      uses: actions/upload-artifact@v2
+      with:
+        name: resume_ea.pdf
+        path: resume_ea.pdf
