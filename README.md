@@ -10,4 +10,4 @@ Run
 make
 ```
 
-It will produce two different versions of your cv.
+It will produce two different versions of the cv.
