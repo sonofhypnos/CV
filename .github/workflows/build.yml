@@ -1,48 +1,32 @@
-name: Build LaTeX document
-on: [push]
+name: Compile LaTeX Document
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  build_latex:
+  build:
     runs-on: ubuntu-latest
+    container: 
+      image: ghcr.io/xu-cheng/latex-docker:full
+
     steps:
-    - name: Set up Git repository
-      uses: actions/checkout@v2
-    - name: Cache LaTeX packages
-      uses: actions/cache@v2
-      with:
-        path: |
-          /usr/local/texlive
-          ~/.texlive
-        key: ${{ runner.os }}-texlive-${{ hashFiles('**/*.tex') }}
-        restore-keys: |
-          ${{ runner.os }}-texlive-
-    - name: Setup LaTeX with Xu Cheng's Action
-      uses: xu-cheng/latex-action@v2
-      with:
-        root_file: main.tex
-        pre_compile: |
-          echo "\def\SkillVersion{}" > flag.tex
-      
-    - name: Compile LaTeX document (skills version)
+    - uses: actions/checkout@v2
+
+    - name: Compile LaTeX Document
       run: |
+        echo "\def\SkillVersion{}" > flag.tex
         pdflatex -interaction=nonstopmode main.tex
         mv main.pdf resume_skills.pdf
-      
-    - name: Generate EA version flag
-      run: |
         echo "\def\EAVersion{}" > flag.tex
-        
-    - name: Compile LaTeX document (ea version)
-      run: |
         pdflatex -interaction=nonstopmode main.tex
-        mv main.pdf resume_ea.pdf
-    - name: Upload Skills Version PDF
+        mv main.pdf resume.pdf
+
+    - name: Upload PDFs as Artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: resume_skills.pdf
-        path: resume_skills.pdf
-        
-    - name: Upload EA Version PDF
-      uses: actions/upload-artifact@v2
-      with:
-        name: resume_ea.pdf
-        path: resume_ea.pdf
+        name: Compiled-PDFs
+        path: |
+          resume_skills.pdf
+          resume.pdf
