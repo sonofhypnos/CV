@@ -1,32 +1,38 @@
-name: Compile LaTeX Document
-
-on:
-  push:
-    branches:
-      - main
-
+name: Build LaTeX document
+on: [push]
 jobs:
-  build:
+  build_latex:
     runs-on: ubuntu-latest
-    container: 
-      image: ghcr.io/xu-cheng/latex-docker:full
-
     steps:
-    - uses: actions/checkout@v2
+    - name: Set up Git repository
+      uses: actions/checkout@v2
 
-    - name: Compile LaTeX Document
-      run: |
-        echo "\def\SkillVersion{}" > flag.tex
-        pdflatex -interaction=nonstopmode main.tex
-        mv main.pdf resume_skills.pdf
-        echo "\def\EAVersion{}" > flag.tex
-        pdflatex -interaction=nonstopmode main.tex
-        mv main.pdf resume.pdf
-
-    - name: Upload PDFs as Artifacts
-      uses: actions/upload-artifact@v2
+    - name: Cache LaTeX packages
+      uses: actions/cache@v2
       with:
-        name: Compiled-PDFs
         path: |
-          resume_skills.pdf
-          resume.pdf
+          /usr/local/texlive
+          ~/.texlive
+        key: ${{ runner.os }}-texlive-${{ hashFiles('**/*.tex') }}
+        restore-keys: |
+          ${{ runner.os }}-texlive-
+
+    - name: Compile LaTeX document (skills version)
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: main.tex
+        pre_compile: |
+          echo "\def\SkillVersion{}" > flag.tex
+        post_compile: |
+          mv main.pdf resume_skills.pdf
+
+    - name: Compile LaTeX document (EA version)
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: main.tex
+        pre_compile: |
+          echo "\def\EAVersion{}" > flag.tex
+        post_compile: |
+          mv main.pdf resume_ea.pdf
+
+    # Add steps to upload the PDFs as artifacts or commit back to the repository here
