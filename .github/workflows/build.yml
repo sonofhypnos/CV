@@ -35,4 +35,14 @@ jobs:
         post_compile: |
           mv main.pdf resume_ea.pdf
 
-    # Add steps to upload the PDFs as artifacts or commit back to the repository here
+    - name: Upload Skills Version PDF
+      uses: actions/upload-artifact@v2
+      with:
+        name: resume_skills.pdf
+        path: resume_skills.pdf
+
+    - name: Upload EA Version PDF
+      uses: actions/upload-artifact@v2
+      with:
+        name: resume_ea.pdf
+        path: resume_ea.pdf
