@@ -2,13 +2,16 @@
 
 \usepackage[margin=1in]{geometry}
 \usepackage{xcolor}
-\usepackage{hyperref}
 % TODO: put your hackathon on your resume even if you did not win?
 
 % Define colors for dark mode
 \definecolor{background}{RGB}{35,35,35}
 \definecolor{text}{RGB}{220,220,220}
 \definecolor{accent}{RGB}{100,149,237} % Light blue color
+
+
+\usepackage[colorlinks = true,
+        urlcolor  = yellow]{hyperref}
 
 % Set page color and text color
 \pagecolor{background}
@@ -25,8 +28,8 @@
 
 \vspace{0.5em}
 \large
-\textcolor{accent}{Email:} tassilo.neubauer@gmail.com \hspace{2em}
-\textcolor{accent}{GitHub:} github.com/sonofhypnos
+\textcolor{accent}{Email:} \href{tassilo.neubauer@gmail.com}{tassilo.neubauer@gmail.com} \hspace{2em}
+\textcolor{accent}{GitHub:} \href{https://github.com/sonofhypnos}{github.com/sonofhypnos}
 \end{center}
 
 \section*{Education}
@@ -77,6 +80,5 @@ B.S. Computer Science, Grade Average 3.1 on a scale from 5 (lowest) to 1 (highes
 	\item \href{https://github.com/sonofhypnos/fatebook.el}{fatebook.el}. An Emacs plugin to create and upload predictions to Fatebook. I created the tool for my own use.
 	      % \item \href{https://github.com/sonofhypnos/fatebook.el}{fatebook.el}. An Emacs plugin to create and upload predictions to Fatebook (I have no relations to Fatebook I just use their product)
 \end{itemize}
-% \end{minipage}
 
 \end{document}
