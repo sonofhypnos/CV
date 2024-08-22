@@ -1,110 +1,78 @@
-\input{flag.tex}
-
 \documentclass[letterpaper,9pt]{article}
 
-\usepackage[style=ieee,url=false,doi=false,maxbibnames=99,sorting=ydnt,dashed=false]{biblatex}
-\bibliography{papers}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+% TODO: put your hackathon on your resume even if you did not win?
 
-% \usepackage{hyperref}
+% Define colors for dark mode
+\definecolor{background}{RGB}{35,35,35}
+\definecolor{text}{RGB}{220,220,220}
+\definecolor{accent}{RGB}{100,149,237} % Light blue color
 
-\def\theme{MidnightBlue}
-\usepackage{simplecv}
-\hypersetup{
-	colorlinks=true,
-	linkcolor=blue,
-	filecolor=magenta,
-	urlcolor=cyan,
-	pdftitle={CV},
-	pdfpagemode=FullScreen,
-}
+% Set page color and text color
+\pagecolor{background}
+\color{text}
 
-
-
-\boldname{Tassilo}{Neubauer}{N.}
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries\color{accent}}{\thesection}{1em}{}[\titlerule]
 
 \begin{document}
-\headinginline{Tassilo Neubauer}{
-	% Website: \website{www.tassiloneubauer.com} \\
-	Email: \email{tassilo.neubauer@gmail.com} \\
-	GitHub: \github{sonofhypnos}
-}
 
-% \headingphoto{Name Surname}{
-%     Website: \website{example.com} \\
-%     Email: \email{example@example.edu} \\
-%     LinkedIn: \linkedin{name-surname} \\
-%     GitHub: \github{example}
-% }{photo.jpg}
-\section{Education}
-\outerlist{
-	\entrybig{\textbf{Karlsruhe Institute of Technology}}{Karlsruhe, Germany}
-	{B.S. Computer Science, Grade Average 3.1 on a scale from 5 (lowest) to 1 (highest).}{October 2020--December 2023}
-	\begin{itemize}
-		\item \textit{Thesis:} Machine Learning-based Root Cause Analysis for Intelligent Production.
-	\end{itemize}
+% Header
+\begin{center}
+\Huge\textbf{Tassilo Neubauer}
 
-	% \entrybig{\textbf{Freie Waldorfschule Wahlwies}}{Stockach, Germany}
-	% {High school diploma,  1.4 on a scale from 5 (lowest) to 1 (highest) grade} {2007--2020}
-}
-\section{Courses}
-\denseouterlist{
-	\entry{\textbf{Math:} Linear Algebra I \& II, Real Analysis I \& II, Probability Theory, Numerical Math for Computer Scientists}
-	\entry{\textbf{Computer Science:} Programming (Java), Software Engineering (Java), Programming Paradigms, Databases, Cognitive Systems, Theory of Computer Science I \& II, Algorithms I \& II, Advanced Algorithmic Programming, Operating Systems, Computer Networks among others}
-	\entry{\textbf{Physics:} Experimental Physics I \& II, Modern Physics for Computer Scientists}
-}
+\vspace{0.5em}
+\large
+\textcolor{accent}{Email:} tassilo.neubauer@gmail.com \hspace{2em}
+\textcolor{accent}{GitHub:} github.com/sonofhypnos
+\end{center}
 
-\ifdefined\SkillVersion
-	\section{Skills}
-	\noindent\small\textit{Proficiency rated on a scale of 1 (basic) to 3 (high).}
-	\normalsize
-	\begin{itemize}
-		\item \textbf{Programming Languages:} Python (3), Java (2), C++ (2), Bash (2), C (1), Nix (1), SQL (1), Haskell (1)
-		\item \textbf{Software and Libraries:} Emacs (3), Numpy (2), Pandas (2), Pytorch (2), Latex (1), Make (1)
-		\item \textbf{Operating Systems:} Linux (3), Windows (1)
-		\item \textbf{Languages:} German (3 - native), English (3), Japanese (1), French (1)
-	\end{itemize}
-\fi
-
-\section{Experience}
+\section*{Education}
+\textbf{Karlsruhe Institute of Technology} \hfill Karlsruhe, Germany \\
+B.S. Computer Science, Grade Average 3.1 on a scale from 5 (lowest) to 1 (highest) \hfill October 2020--December 2023
 \begin{itemize}
-	\item \textbf{Freelance Software Developer} \hfill Online, January 2024--Current \\
-        Working on a data scraping job with Exosome Consulting.
-	\item \textbf{Stanford Existential Risk Initiative} \hfill Online, November 2022--December 2022 \\
-		Participated in John Wentworth's agent foundations training program. Conducted numerous exercises in conceptual research.
-	\item \textbf{Forschungszentrum Informatik, Karlsruhe, Germany} \hfill March 2022--December 2022 \\
-	      Research assistant focusing on generating visualization recommendations using an
-	      evolutionary algorithm combined with random forests and simple feedforward neural nets,
-	      based on artificial human feedback.
-	\item \textbf{Karlsruhe Institute of Technology, Karlsruhe, Germany} \hfill April 2022--September 2022 \\
-	      Collaborated with a team of four students to develop a C++ GUI plugin for the
-	      ArmarX distributed robot framework. A standout contribution of mine was the
-	      design and implementation of a foldable timeline that visually represented the
-	      robot's hierarchically structured memory over time,
-	      leveraging \href{https://doc.qt.io/qt-5/}{Qt5} for the basic components.
-	\item \textbf{Karlsruhe Institute of Technology, Karlsruhe, Germany} \hfill September 2021--December 2021 \\
-	      Research assistant at the Chair for Political Economy. Sped up time to run online experiments for the chair from weeks to hours. I set up hosting of the experiments on Heroku and recruitment of participants through Prolific. % Previously the chair had outsorced running the experiments to a different chair.
+    \item \textit{Thesis:} Machine Learning-based Root Cause Analysis for Intelligent Production.
 \end{itemize}
 
-\ifdefined\EAVersion
-	\section{Extracurriculars}
-	\denseouterlist{
-		\entrymid[\textbullet]
-		{\textbf{Coorganizer of local EA group Karlsruhe}}{April 2021--November 2023}
-		{Booking rooms, went through the paperwork to become an official university group.}
-		\entrymid[\textbullet]
-		{\textbf{Member in \href{https://aisafety.com/}{AI-Safety-Reading-Group}}}{October 2019--June 2020}
-		{Learned about risks from advanced artificial intelligence. Read Human Compatible, Superintelligence and Rationality from AI to Zombies.}
-		\entrymid[\textbullet]
-		{\textbf{Commenting and occasionally posting on \href{https://www.metaculus.com/accounts/profile/106992/}{Metaculus} and later \href{https://www.lesswrong.com/users/morpheus}{Lesswrong}}}{June 2019--Current} %2019 was starting metaculus
-		{\textasciitilde{} 2000 predictions on \textasciitilde{} 600 questions on Metaculus. Currently active only on Lesswrong.}
-	}
-\fi
-
-\section{Projects}
-
-% \begin{minipage}[t]{0.505\textwidth}
-
+\section*{Courses}
 \begin{itemize}
+    \item \textbf{Math:} Linear Algebra I \& II, Real Analysis I \& II, Probability Theory, Numerical Math for Computer Scientists
+    \item \textbf{Computer Science:} Programming (Java), Software Engineering (Java), Programming Paradigms, Databases, Cognitive Systems, Theory of Computer Science I \& II, Algorithms I \& II, Advanced Algorithmic Programming, Operating Systems, Computer Networks among others
+    \item \textbf{Physics:} Experimental Physics I \& II, Modern Physics for Computer Scientists
+\end{itemize}
+
+\section*{Experience}
+\begin{itemize}
+    \item \textbf{Freelance Software Developer} \hfill Online, June 2024--August 2024 \\
+        Worked as fullstack developer for an early-stage startup, expanding their MVP:
+        \begin{itemize}
+            \item Collaborated with senior developer to extend existing codebase:
+			\begin{itemize}
+				\item Developed chat frontend and payment dashboards
+				\item Implemented payment backend functionality
+				\item Enhanced chatbot API and integrated RAG for improved search capabilities
+			\end{itemize}
+        \end{itemize}
+    \item \textbf{Freelance Software Developer} \hfill Online, January 2024--June 2024 \\
+        Worked on Data pipeline development with Exosome Consulting.
+    \item \textbf{Forschungszentrum Informatik, Karlsruhe, Germany} \hfill March 2022--December 2022 \\
+          Research assistant focusing on generating visualization recommendations using an
+          evolutionary algorithm combined with random forests and simple feedforward neural nets,
+          based on artificial human feedback.
+    \item \textbf{Karlsruhe Institute of Technology, Karlsruhe, Germany} \hfill September 2021--December 2021 \\
+          Research assistant at the Chair for Political Economy. Sped up time to run online experiments for the chair from
+          weeks to hours. I set up hosting of the experiments on Heroku and recruitment of participants through Prolific.
+\end{itemize}
+
+\section*{Projects}
+\begin{itemize}
+    \item \textbf{ArmarX Distributed Robot Framework Plugin} \hfill April 2022--September 2022 \\
+          Collaborated with a team of four students to develop a C++ GUI plugin for the
+          ArmarX distributed robot framework. A standout contribution of mine was the
+          design and implementation of a foldable timeline that visually represented the
+          robot's hierarchically structured memory over time, leveraging Qt5 for the basic components.
 	\item \href{https://sonofhypnos.github.io/blog/prediction/python/2021/01/30/sp500.html}{Predicting the S\&P 500} (Python, Numpy, Pandas), by sampling from past market data. I used this to win money on the \href{https://www.almanisprivate.com/}{Almanis} prediction market. This method worked better for me than just eyeballing trends.
 	\item \href{https://github.com/sonofhypnos/fatebook.el}{fatebook.el}. An Emacs plugin to create and upload predictions to Fatebook. I created the tool for my own use.
 	      % \item \href{https://github.com/sonofhypnos/fatebook.el}{fatebook.el}. An Emacs plugin to create and upload predictions to Fatebook (I have no relations to Fatebook I just use their product)
