@@ -22,12 +22,12 @@ skills:
 ea:
 	echo "\def\EAVersion{}" > flag.tex
 	pdflatex -interaction=nonstopmode main.tex
-	mv main.pdf $(EA_DIR)/resume_ea_volunteering.pdf && xdg-open $(EA_DIR)/resume_ea_volunteering.pdf
+	mv main.pdf $(EA_DIR)/resume.pdf && xdg-open $(EA_DIR)/resume.pdf
 
 image:
 	echo "\def\ImageVersion{}" > flag.tex
 	pdflatex -interaction=nonstopmode main.tex
-	mv main.pdf $(IMAGE_DIR)/resume_with_image.pdf && xdg-open $(IMAGE_DIR)/resume_with_image.pdf
+	mv main.pdf $(IMAGE_DIR)/resume.pdf && xdg-open $(IMAGE_DIR)/resume.pdf
 
 clean:
 	rm -f *.aux *.log *.out flag.tex
