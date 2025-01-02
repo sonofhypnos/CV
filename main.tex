@@ -1,4 +1,4 @@
-\documentclass[letterpaper,10pt]{article}
+\documentclass[letterpaper, 9pt]{article}
 
 \usepackage[margin=0.49in]{geometry}
 \usepackage{xcolor}
@@ -29,7 +29,8 @@
         \textbf{\Huge{#1}}\\
         \small{
             \textcolor{accent}{#2} \hspace{1em}
-            \href{#3}{GitHub}
+            \href{#3}{GitHub}\hspace{1em}
+            \href{#4}{tassilo.neubauer.com}
         }
     \end{center}
 }
@@ -37,7 +38,7 @@
 \begin{document}
 
 
-\header{Tassilo Neubauer}{tassilo.neubauer@gmail.com}{https://github.com/sonofhypnos}
+\header{Tassilo Neubauer}{tassilo.neubauer@gmail.com}{https://github.com/sonofhypnos}{https://www.tassiloneubauer.com/}
 
 \section*{Education}
 \textbf{Karlsruhe Institute of Technology} \hfill Karlsruhe, Germany \\
@@ -51,6 +52,10 @@ High school diploma,  1.4 on a scale from 5 (lowest) up to 1 (highest) grade \hf
 
 \section*{Experience}
 \begin{itemize}
+    \item \textbf{Research Intern, Bootstrap Bio} \hfill Online, October 2024--Present
+    \begin{itemize}
+       \item Conducting research on the epigenetic state in pre-implantation embryos
+    \end{itemize}
     \item \textbf{Freelance Software Developer, BoostX} \hfill Online, June 2024--August 2024
     \begin{itemize}
        \item Worked as a full-stack developer for BoostX, an early-stage startup. (Typescript, React, Node.js, MongoDB, SQLite)
@@ -66,8 +71,7 @@ High school diploma,  1.4 on a scale from 5 (lowest) up to 1 (highest) grade \hf
     \end{itemize}
     \item \textbf{Research Assistant, KIT Political Economy Chair} \hfill Karlsruhe, Germany, September 2021--December 2021
     \begin{itemize}
-        \item Optimized online experiment deployment previously handled by another chair, reducing setup time from weeks to hours
-        \item Set up experiment hosting on Heroku and participant recruitment through Prolific
+        \item Optimized online experiment deployment previously handled by another chair, reducing time to recruit participants from weeks to hours (using Prolific)
     \end{itemize}
 \end{itemize}
 
@@ -120,29 +124,12 @@ High school diploma,  1.4 on a scale from 5 (lowest) up to 1 (highest) grade \hf
 
 % TODO: include seminar and presentation on deep learning?
 
-\unless\ifdefined\EAVersion
 \section*{Extracurriculars}
   \begin{itemize}
-      \item {\textbf{Co-organizer of local EA group Karlsruhe}} \hfill April 2021--November 2023 \\
+      \item {\textbf{Co-organizer of local Effective Altruism group Karlsruhe}} \hfill April 2021--November 2023 \\
       {Booked rooms, went through the paperwork to become an official university group.}
-      \item \textbf{Forecasting on \href{https://www.metaculus.com/accounts/profile/106992/}{Metaculus}} \hfill June 2019--March 2020
-      \begin{itemize}
-              \item 11th most accurate predictor in 2019
-              \item Made $\sim$2000 predictions on $\sim$600 questions on Metaculus
-      \end{itemize}
-  \end{itemize}
-
-\end{document}
-\fi
-
-
-\ifdefined\EAVersion
-\section*{Extracurriculars}
-  \begin{itemize}
-      \item {\textbf{Co-organizer of local EA group Karlsruhe}} \hfill April 2021--November 2023 \\
-      {Booked rooms, went through the paperwork to become an official university group.}
-      \item {\textbf{Member in \href{https://web.archive.org/web/20220123065219/http://aisafety.com/}{AI-Safety-Reading-Group}}} \hfill October 2019--June 2020 \\
-      {Learned about risks from advanced artificial intelligence. Read Human Compatible, Superintelligence and Rationality from AI to Zombies.}
+      % \item {\textbf{Member in \href{https://web.archive.org/web/20220123065219/http://aisafety.com/}{AI-Safety-Reading-Group}}} \hfill October 2019--June 2020 \\
+      % {Learned about risks from advanced artificial intelligence. Read Human Compatible, Superintelligence and Rationality from AI to Zombies.}
       \item {\textbf{Writing on \href{https://www.tassiloneubauer.com/}{my blog}}} \hfill 2021--Current
       \item \textbf{Forecasting on \href{https://www.metaculus.com/accounts/profile/106992/}{Metaculus}} \hfill June 2019--March 2020
       \begin{itemize}
@@ -152,4 +139,3 @@ High school diploma,  1.4 on a scale from 5 (lowest) up to 1 (highest) grade \hf
   \end{itemize}
 
 \end{document}
-\fi
