@@ -1,8 +1,9 @@
 ##
 # CV
 #
+# @author Tassilo Neubauer
 # @file
-# @version 0.2
+# @version 0.3
 
 # Directories
 SKILLS_DIR := skills
@@ -10,34 +11,25 @@ EA_DIR := ea
 IMAGE_DIR := image
 AU_DIR := australia
 
+VERSIONS := skills ea image australia
+DIRS := $(SKILLS_DIR) $(EA_DIR) $(IMAGE_DIR) $(AU_DIR)
+
 # Ensure directories exist
-$(shell mkdir -p $(SKILLS_DIR) $(EA_DIR) $(IMAGE_DIR) $(AU_DIR))
+$(shell mkdir -p $(DIRS))
 
-all: skills ea image australia
-
-skills:
-	echo "\def\SkillVersion{}" > flag.tex
+# Generic rule for all versions
+$(DIRS)/%: main.tex
+	echo "\def\$(shell echo $(notdir $(dir $@)) | sed 's/.*/\u&/')Version{}" > flag.tex
 	pdflatex -interaction=nonstopmode main.tex
-	mv main.pdf $(SKILLS_DIR)/resume.pdf && xdg-open $(SKILLS_DIR)/resume.pdf
+	mv main.pdf $@ && xdg-open $@
 
+# Targets for each version
+$(VERSIONS): %: $(dir $(DIRS))%/resume.pdf
 
-australia:
-	echo "\def\AustraliaVersion{}" > flag.tex
-	pdflatex -interaction=nonstopmode main.tex
-	mv main.pdf $(AU_DIR)/resume.pdf && xdg-open $(AU_DIR)/resume.pdf
-
-ea:
-	echo "\def\EAVersion{}" > flag.tex
-	pdflatex -interaction=nonstopmode main.tex
-	mv main.pdf $(EA_DIR)/resume.pdf && xdg-open $(EA_DIR)/resume.pdf
-
-image:
-	echo "\def\ImageVersion{}" > flag.tex
-	pdflatex -interaction=nonstopmode main.tex
-	mv main.pdf $(IMAGE_DIR)/resume.pdf && xdg-open $(IMAGE_DIR)/resume.pdf
+all: $(VERSIONS)
 
 clean:
 	rm -f *.aux *.log *.out flag.tex
-	rm -rf $(SKILLS_DIR) $(EA_DIR) $(IMAGE_DIR) $(AU_DIR)
+	rm -rf $(DIRS)
 
-.PHONY: all skills ea image clean
+.PHONY: all $(VERSIONS) clean
