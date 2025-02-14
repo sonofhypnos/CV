@@ -11,19 +11,30 @@ EA_DIR := ea
 IMAGE_DIR := image
 AU_DIR := australia
 
-VERSIONS := skills ea image australia
-DIRS := $(SKILLS_DIR) $(EA_DIR) $(IMAGE_DIR) $(AU_DIR)
-
 # Ensure directories exist
-$(shell mkdir -p $(DIRS))
+$(shell mkdir -p $(SKILLS_DIR) $(EA_DIR) $(IMAGE_DIR) $(AU_DIR))
 
-# Pattern rule for PDFs
-%/resume.pdf: main.tex
-	echo "\def\$(shell echo $(notdir $(dir $@)) | sed 's/.*/\u&/')Version{}" > flag.tex
+# Pattern rules for each version
+$(SKILLS_DIR)/resume.pdf: main.tex
+	echo "\def\SkillsVersion{}" > flag.tex
 	pdflatex -interaction=nonstopmode main.tex
 	mv main.pdf $@ && xdg-open $@
 
-# Targets for each version
+$(EA_DIR)/resume.pdf: main.tex
+	echo "\def\EAVersion{}" > flag.tex
+	pdflatex -interaction=nonstopmode main.tex
+	mv main.pdf $@ && xdg-open $@
+
+$(IMAGE_DIR)/resume.pdf: main.tex
+	echo "\def\ImageVersion{}" > flag.tex
+	pdflatex -interaction=nonstopmode main.tex
+	mv main.pdf $@ && xdg-open $@
+
+$(AU_DIR)/resume.pdf: main.tex
+	echo "\def\AustraliaVersion{}" > flag.tex
+	pdflatex -interaction=nonstopmode main.tex
+	mv main.pdf $@ && xdg-open $@
+
 skills: $(SKILLS_DIR)/resume.pdf
 ea: $(EA_DIR)/resume.pdf
 image: $(IMAGE_DIR)/resume.pdf
@@ -33,6 +44,6 @@ all: skills ea image australia
 
 clean:
 	rm -f *.aux *.log *.out flag.tex
-	rm -rf $(DIRS)
+	rm -rf $(SKILLS_DIR) $(EA_DIR) $(IMAGE_DIR) $(AU_DIR)
 
 .PHONY: all skills ea image australia clean
