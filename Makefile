@@ -17,19 +17,22 @@ DIRS := $(SKILLS_DIR) $(EA_DIR) $(IMAGE_DIR) $(AU_DIR)
 # Ensure directories exist
 $(shell mkdir -p $(DIRS))
 
-# Generic rule for all versions
-$(DIRS)/%: main.tex
+# Pattern rule for PDFs
+%/resume.pdf: main.tex
 	echo "\def\$(shell echo $(notdir $(dir $@)) | sed 's/.*/\u&/')Version{}" > flag.tex
 	pdflatex -interaction=nonstopmode main.tex
 	mv main.pdf $@ && xdg-open $@
 
 # Targets for each version
-$(VERSIONS): %: $(dir $(DIRS))%/resume.pdf
+skills: $(SKILLS_DIR)/resume.pdf
+ea: $(EA_DIR)/resume.pdf
+image: $(IMAGE_DIR)/resume.pdf
+australia: $(AU_DIR)/resume.pdf
 
-all: $(VERSIONS)
+all: skills ea image australia
 
 clean:
 	rm -f *.aux *.log *.out flag.tex
 	rm -rf $(DIRS)
 
-.PHONY: all $(VERSIONS) clean
+.PHONY: all skills ea image australia clean
